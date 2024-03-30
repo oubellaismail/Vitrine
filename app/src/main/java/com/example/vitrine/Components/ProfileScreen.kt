@@ -22,6 +22,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.vitrine.Entities.User
@@ -82,7 +83,7 @@ fun ProfileScreen(navController: NavController, mainActivity: MainActivity) {
                 }
                 Spacer(modifier = Modifier.height(16.dp))
                 Button(
-                    onClick = { mainActivity.user?.let { it1 -> mainActivity.cart.getCartItemsForUser(it1) }  },
+                    onClick = { sendEmail(mainActivity.user!!, context = mainActivity, mainActivity.cart )  },
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 ) {
                     Text("Buy")
